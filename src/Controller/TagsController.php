@@ -10,6 +10,12 @@ use App\Controller\AppController;
  */
 class TagsController extends AppController
 {
+    
+    public $paginate = [
+        'limit' => 10,
+        'order' => ['Tags.name' => 'ASC']
+        
+    ];
 
     /**
      * Index method

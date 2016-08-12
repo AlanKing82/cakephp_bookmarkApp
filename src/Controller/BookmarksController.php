@@ -67,6 +67,12 @@ class BookmarksController extends AppController
         $this->set(compact('bookmark', 'users', 'tags'));
         $this->set('_serialize', ['bookmark']);
     }
+    
+    public function export($limit=100){
+        $bookmarks = $this->Bookmarks->find('all')->limit($limit);
+        // set value of bookmars var for use in the export view
+        $this->set('bookmarks', $bookmarks);
+    }
 
     /**
      * Edit method
